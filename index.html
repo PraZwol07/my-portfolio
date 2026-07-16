@@ -1,743 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sasha Novak — Creative Technologist</title>
-<meta name="description" content="Portfolio of Sasha Novak, a creative technologist building interactive products and data experiences.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #EAEBE4;
-    --bg-alt: #E1E3D9;
-    --ink: #182420;
-    --ink-soft: #4B564F;
-    --line: rgba(24,36,32,0.14);
-    --accent: #3452F0;
-    --accent-ink: #FFFFFF;
-    --accent2: #E85B2C;
-    --surface: #FAFAF6;
-    --radius: 14px;
-    --display: 'Space Grotesk', sans-serif;
-    --body: 'Inter', sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-    --max: 1160px;
-  }
-
-  *{box-sizing:border-box; margin:0; padding:0;}
-
-  html{scroll-behavior:smooth;}
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
-  }
-
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--body);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:inherit;}
-
-  ::selection{background:var(--accent); color:var(--accent-ink);}
-
-  a:focus-visible,
-  button:focus-visible,
-  [tabindex]:focus-visible{
-    outline:2.5px solid var(--accent);
-    outline-offset:3px;
-    border-radius:4px;
-  }
-
-  .wrap{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:0 32px;
-  }
-
-  /* ---------- Nav ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(234,235,228,0.82);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:72px;
-  }
-  .logo{
-    font-family:var(--display);
-    font-weight:700;
-    font-size:1.15rem;
-    letter-spacing:-0.02em;
-    text-decoration:none;
-  }
-  .logo span{color:var(--accent);}
-  .nav-links{
-    display:flex;
-    gap:32px;
-    list-style:none;
-  }
-  .nav-links a{
-    text-decoration:none;
-    font-size:0.92rem;
-    font-weight:500;
-    color:var(--ink-soft);
-    transition:color 0.2s ease;
-  }
-  .nav-links a:hover{color:var(--ink);}
-  .nav-cta{
-    background:var(--ink);
-    color:var(--bg) !important;
-    padding:9px 18px;
-    border-radius:100px;
-    font-size:0.88rem !important;
-    font-weight:600 !important;
-    text-decoration:none;
-    color:var(--surface);
-  }
-  .menu-toggle{display:none;}
-
-  @media (max-width:760px){
-    .nav-links{display:none;}
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{
-    padding:96px 0 72px;
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:48px;
-    align-items:center;
-  }
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:0.8rem;
-    color:var(--accent);
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{
-    content:'';
-    width:8px; height:8px;
-    background:var(--accent2);
-    border-radius:50%;
-    display:inline-block;
-  }
-  h1{
-    font-family:var(--display);
-    font-weight:700;
-    font-size:clamp(2.4rem, 5vw, 4.1rem);
-    line-height:1.03;
-    letter-spacing:-0.03em;
-    margin-bottom:26px;
-  }
-  h1 em{
-    font-style:normal;
-    color:var(--accent);
-  }
-  .hero-desc{
-    font-size:1.13rem;
-    color:var(--ink-soft);
-    max-width:46ch;
-    margin-bottom:34px;
-  }
-  .hero-actions{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:14px 24px;
-    border-radius:100px;
-    font-weight:600;
-    font-size:0.95rem;
-    text-decoration:none;
-    border:1.5px solid var(--ink);
-    transition:transform 0.15s ease, background 0.15s ease, color 0.15s ease;
-  }
-  .btn-primary{
-    background:var(--ink);
-    color:var(--bg);
-  }
-  .btn-primary:hover{
-    background:var(--accent);
-    border-color:var(--accent);
-    transform:translateY(-2px);
-  }
-  .btn-ghost{
-    background:transparent;
-    color:var(--ink);
-  }
-  .btn-ghost:hover{
-    background:var(--ink);
-    color:var(--bg);
-    transform:translateY(-2px);
-  }
-
-  /* ---------- Signature canvas panel ---------- */
-  .hero-visual{
-    position:relative;
-    aspect-ratio:1/1;
-    background:var(--ink);
-    border-radius:20px;
-    overflow:hidden;
-  }
-  .hero-visual canvas{
-    width:100%;
-    height:100%;
-    display:block;
-    cursor:crosshair;
-  }
-  .hero-visual-label{
-    position:absolute;
-    bottom:16px;
-    left:16px;
-    font-family:var(--mono);
-    font-size:0.72rem;
-    color:rgba(250,250,246,0.55);
-    letter-spacing:0.03em;
-    pointer-events:none;
-  }
-
-  @media (max-width:900px){
-    .hero{grid-template-columns:1fr; padding-top:56px;}
-    .hero-visual{aspect-ratio:16/10;}
-  }
-
-  /* ---------- Section shell ---------- */
-  section{padding:88px 0;}
-  .section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    margin-bottom:48px;
-    gap:24px;
-    flex-wrap:wrap;
-  }
-  .section-tag{
-    font-family:var(--mono);
-    font-size:0.78rem;
-    color:var(--ink-soft);
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    margin-bottom:10px;
-    display:block;
-  }
-  h2{
-    font-family:var(--display);
-    font-size:clamp(1.7rem, 3vw, 2.4rem);
-    letter-spacing:-0.02em;
-    font-weight:600;
-  }
-  .section-note{
-    max-width:38ch;
-    color:var(--ink-soft);
-    font-size:0.98rem;
-  }
-
-  /* ---------- About ---------- */
-  .about{
-    background:var(--bg-alt);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-  }
-  .about-grid p{
-    font-size:1.06rem;
-    color:var(--ink-soft);
-    margin-bottom:18px;
-  }
-  .about-grid p strong{color:var(--ink); font-weight:600;}
-  .stat-row{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin-top:8px;
-  }
-  .stat{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:20px 18px;
-  }
-  .stat b{
-    font-family:var(--display);
-    font-size:1.9rem;
-    display:block;
-    letter-spacing:-0.02em;
-  }
-  .stat span{
-    font-size:0.82rem;
-    color:var(--ink-soft);
-  }
-  @media (max-width:800px){
-    .about-grid{grid-template-columns:1fr;}
-  }
-
-  /* ---------- Work ---------- */
-  .work-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:24px;
-  }
-  .card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:32px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    transition:transform 0.2s ease, box-shadow 0.2s ease;
-    position:relative;
-    overflow:hidden;
-  }
-  .card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 16px 32px -20px rgba(20,30,25,0.35);
-  }
-  .card-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-  }
-  .card-swatch{
-    width:44px; height:44px;
-    border-radius:10px;
-    flex-shrink:0;
-  }
-  .card h3{
-    font-family:var(--display);
-    font-size:1.3rem;
-    letter-spacing:-0.01em;
-    margin-bottom:6px;
-  }
-  .card p{
-    color:var(--ink-soft);
-    font-size:0.95rem;
-  }
-  .tag-row{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:auto;
-  }
-  .tag{
-    font-family:var(--mono);
-    font-size:0.72rem;
-    padding:5px 10px;
-    border-radius:100px;
-    background:var(--bg-alt);
-    color:var(--ink-soft);
-  }
-  .card-link{
-    font-size:0.88rem;
-    font-weight:600;
-    color:var(--accent);
-    text-decoration:none;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-  }
-  .card-link svg{transition:transform 0.2s ease;}
-  .card-link:hover svg{transform:translate(3px,-3px);}
-
-  @media (max-width:800px){
-    .work-grid{grid-template-columns:1fr;}
-  }
-
-  /* ---------- Toolkit ---------- */
-  .toolkit-strip{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-  .toolkit-strip .tag{
-    background:var(--surface);
-    border:1px solid var(--line);
-    font-size:0.85rem;
-    padding:9px 16px;
-  }
-
-  /* ---------- Process ---------- */
-  .process-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-  }
-  .process-item{
-    border-top:2px solid var(--ink);
-    padding-top:18px;
-  }
-  .process-item h3{
-    font-family:var(--display);
-    font-size:1.15rem;
-    margin-bottom:10px;
-  }
-  .process-item p{
-    color:var(--ink-soft);
-    font-size:0.94rem;
-  }
-  @media (max-width:800px){
-    .process-grid{grid-template-columns:1fr;}
-  }
-
-  /* ---------- Contact ---------- */
-  .contact{
-    background:var(--ink);
-    color:var(--bg);
-    border-radius:24px;
-    margin:0 24px 24px;
-    padding:80px 48px;
-    text-align:center;
-  }
-  .contact h2{
-    color:var(--bg);
-    font-size:clamp(1.8rem,4vw,3rem);
-    max-width:20ch;
-    margin:0 auto 20px;
-  }
-  .contact p{
-    color:rgba(250,250,246,0.65);
-    max-width:44ch;
-    margin:0 auto 34px;
-  }
-  .contact .btn-primary{
-    background:var(--accent);
-    border-color:var(--accent);
-    color:#fff;
-  }
-  .contact .btn-primary:hover{
-    background:var(--accent2);
-    border-color:var(--accent2);
-  }
-
-  footer{
-    padding:40px 0 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:16px;
-    font-size:0.85rem;
-    color:var(--ink-soft);
-  }
-  footer a{text-decoration:none; color:var(--ink-soft);}
-  footer a:hover{color:var(--ink);}
-  .footer-links{display:flex; gap:20px;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwol Maharjan | Personal Portfolio</title>
+    <meta name="description" content="Personal portfolio of Prajwol Maharjan, showcasing skills, projects, and contact information.">
 </head>
 <body>
 
 <header>
-  <nav class="wrap">
-    <a href="#top" class="logo">Sasha<span>.</span>Novak</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#toolkit">Toolkit</a></li>
-      <li><a href="#process">Process</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta">Start a project</a>
-  </nav>
+    <h1>Prajwol Maharjan</h1>
+    <p>Computing Student &amp; Aspiring Web Developer</p>
+    <nav aria-label="Primary navigation">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
-<main id="top">
+<main>
 
-  <section class="hero wrap">
-    <div>
-      <span class="eyebrow">Available for select projects, Q3 2026</span>
-      <h1>Building interfaces that <em>respond</em> to people, not just render for them.</h1>
-      <p class="hero-desc">I'm Sasha Novak, a creative technologist. I design and build interactive products, data experiences, and generative interfaces for teams who want their software to feel considered — not just functional.</p>
-      <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">See the work</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <canvas id="signature"></canvas>
-      <span class="hero-visual-label">move your cursor — this canvas is live</span>
-    </div>
-  </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="c:\Users\Prajwol\website\photo\profile.jpeg.jpeg" alt="Portrait photo of Prajwol Maharjan" width="200" height="200">
+        <p>
+            Hello! I am a computing student with a strong interest in web development,
+            software engineering, and building user-focused digital experiences. I enjoy
+            turning ideas into functional applications and am currently expanding my
+            knowledge of front-end and back-end technologies through coursework and
+            independent projects. This portfolio highlights a selection of my work and
+            the technical skills I have developed so far.
+        </p>
+    </section>
 
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div>
-        <span class="section-tag">About</span>
-        <h2 style="margin-bottom:22px;">Ten years at the intersection of design and code.</h2>
-        <p>I started as a frontend engineer, moved into product design, and never really picked a side — <strong>most of my best work lives in the gap between the two.</strong> That means prototypes that ship, and shipped products that still feel like prototypes: alive, responsive, a little surprising.</p>
-        <p>Previously at a data-visualization studio and an early-stage generative-art startup. These days I work directly with founders and small design teams who need one person who can take an idea from sketch to production.</p>
-      </div>
-      <div>
-        <div class="stat-row">
-          <div class="stat"><b>40+</b><span>products shipped</span></div>
-          <div class="stat"><b>10 yrs</b><span>design + code</span></div>
-          <div class="stat"><b>12</b><span>countries worked with</span></div>
-        </div>
-        <div class="stat-row" style="margin-top:20px;">
-          <div class="stat" style="grid-column:span 3;"><b>Currently</b><span>Taking on 2–3 new engagements per quarter — usually 4 to 10 weeks, from concept through launch.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <dl>
+            <dt>HTML5</dt>
+            <dd>Building accessible, semantic page structures using modern HTML5 elements.</dd>
+            
+            <dt>CSS3</dt>
+            <dd>Styling layouts, responsive design, and visual presentation of web pages.</dd>
+            
+            <dt>JavaScript</dt>
+            <dd>Adding interactivity and dynamic behaviour to web applications.</dd>
+            
+            <dt>Python</dt>
+            <dd>Scripting, automation, and back-end application logic.</dd>
+            
+            <dt>Git &amp; GitHub</dt>
+            <dd>Version control and collaborative source code management.</dd>
+        </dl>
+    </section>
+    <!-- Add this after the </section> (the one closing the 'skills' section) -->
 
-  <section id="work">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="section-tag">Selected work</span>
-          <h2>Four projects, four different problems.</h2>
-        </div>
-        <p class="section-note">A mix of client engagements and independent studies — each one picked because it needed something a template couldn't give it.</p>
-      </div>
-      <div class="work-grid">
+<section id="projects">
+    <h2>Projects</h2>
+    
+    <h3>Agile Project Planning Report</h3>
+    <p>A coursework project applying Scrum methodology to plan and track a software project, including sprint backlogs, user stories, and a Trello board used to manage tasks throughout the development lifecycle.</p>
+    <a href="#">View Repository on GitHub</a>
+    
+    <h3>Semantic HTML5 Portfolio Page</h3>
+    <p>This very portfolio page, built strictly with semantic HTML5 elements and browser-default styling, demonstrating correct use of &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, and &lt;footer&gt; elements.</p>
+    <a href="#">View Repository on GitHub</a>
+</section>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-swatch" style="background:#3452F0;"></div>
-          </div>
-          <h3>Current — Climate Dashboard</h3>
-          <p>A real-time emissions dashboard for a logistics fleet, built to make 40,000 daily data points legible at a glance without drowning operators in charts.</p>
-          <div class="tag-row">
-            <span class="tag">D3.js</span>
-            <span class="tag">WebSockets</span>
-            <span class="tag">Data viz</span>
-          </div>
-          <a href="#" class="card-link">View case study
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </a>
-        </div>
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name"><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email"><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message"></textarea><br>
+        
+        <button type="submit">Send Message</button>
+    </form>
+</section>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-swatch" style="background:#E85B2C;"></div>
-          </div>
-          <h3>Loom — Generative Type Tool</h3>
-          <p>A browser-based tool that lets type designers generate variable-font specimens live, with parameters exposed as physical sliders rather than menus.</p>
-          <div class="tag-row">
-            <span class="tag">Canvas API</span>
-            <span class="tag">Typography</span>
-            <span class="tag">Side project</span>
-          </div>
-          <a href="#" class="card-link">View case study
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </a>
-        </div>
+</main> <!-- Closes the <main> tag -->
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-swatch" style="background:#1B2A28;"></div>
-          </div>
-          <h3>Fielded — Farm Sensor Network</h3>
-          <p>Onboarding and data-review flows for a hardware startup's soil-sensor network, designed for use with wet gloves on a phone in direct sun.</p>
-          <div class="tag-row">
-            <span class="tag">React Native</span>
-            <span class="tag">Field UX</span>
-            <span class="tag">0→1</span>
-          </div>
-          <a href="#" class="card-link">View case study
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </a>
-        </div>
-
-        <div class="card">
-          <div class="card-top">
-            <div class="card-swatch" style="background:#6B7A72;"></div>
-          </div>
-          <h3>Nearby — Local Events Map</h3>
-          <p>A map-first events app for three mid-size cities, rebuilt around a single principle: never show a list when a map answers the question faster.</p>
-          <div class="tag-row">
-            <span class="tag">Mapbox GL</span>
-            <span class="tag">Svelte</span>
-            <span class="tag">Consumer</span>
-          </div>
-          <a href="#" class="card-link">View case study
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="toolkit" style="background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="section-tag">Toolkit</span>
-          <h2>What I actually reach for.</h2>
-        </div>
-        <p class="section-note">Less a resume, more a kit bag — the tools that show up across most engagements.</p>
-      </div>
-      <div class="toolkit-strip">
-        <span class="tag">TypeScript</span>
-        <span class="tag">React</span>
-        <span class="tag">D3.js</span>
-        <span class="tag">Figma</span>
-        <span class="tag">WebGL / Three.js</span>
-        <span class="tag">Svelte</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">Framer Motion</span>
-        <span class="tag">Python (data)</span>
-        <span class="tag">After Effects</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="process">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="section-tag">Process</span>
-          <h2>How an engagement usually runs.</h2>
-        </div>
-        <p class="section-note">Not a rigid framework — but most projects move through the same three shapes.</p>
-      </div>
-      <div class="process-grid">
-        <div class="process-item">
-          <h3>Understand the real constraint</h3>
-          <p>Before any design work, I spend time with the actual data, users, or hardware involved. Most interesting constraints aren't in the brief.</p>
-        </div>
-        <div class="process-item">
-          <h3>Prototype in the real medium</h3>
-          <p>I skip static mockups where I can and prototype directly in code, so what you're reviewing behaves like the real thing.</p>
-        </div>
-        <div class="process-item">
-          <h3>Ship, then simplify</h3>
-          <p>First versions tend to do too much. I build in a pass, after launch, dedicated purely to removing what didn't earn its place.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact">
-        <h2>Have a project that needs both design and code?</h2>
-        <p>I'm currently booking new engagements for Q3 2026. Tell me what you're building and I'll reply within two business days.</p>
-        <a href="mailto:hello@sashanovak.design" class="btn btn-primary">hello@sashanovak.design</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="wrap">
-  <span>© 2026 Sasha Novak. Built with code, not a template.</span>
-  <div class="footer-links">
-    <a href="#">GitHub</a>
-    <a href="#">Dribbble</a>
-    <a href="#">LinkedIn</a>
-  </div>
+<footer>
+    <p>&copy; 2026 Prajwol Maharjan. All rights reserved.</p>
+    <ul>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Gmail</a></li>
+    </ul>
 </footer>
-
-<script>
-(function(){
-  const canvas = document.getElementById('signature');
-  const ctx = canvas.getContext('2d');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let w, h, dpr;
-  let mouse = {x: -9999, y: -9999};
-  let points = [];
-  const spacing = 34;
-
-  function resize(){
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = canvas.clientWidth;
-    h = canvas.clientHeight;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    buildPoints();
-  }
-
-  function buildPoints(){
-    points = [];
-    const cols = Math.ceil(w / spacing) + 1;
-    const rows = Math.ceil(h / spacing) + 1;
-    for(let i=0;i<cols;i++){
-      for(let j=0;j<rows;j++){
-        points.push({
-          x: i * spacing,
-          y: j * spacing,
-          baseX: i * spacing,
-          baseY: j * spacing
-        });
-      }
-    }
-  }
-
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    for(const p of points){
-      const dx = mouse.x - p.baseX;
-      const dy = mouse.y - p.baseY;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      const radius = 140;
-      let size = 1.6;
-      let alpha = 0.22;
-      if(dist < radius){
-        const t = 1 - dist / radius;
-        size = 1.6 + t * 4.5;
-        alpha = 0.22 + t * 0.65;
-      }
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(52, 82, 240, ${alpha})`;
-      ctx.arc(p.x, p.y, size, 0, Math.PI*2);
-      ctx.fill();
-    }
-    if(!prefersReduced){
-      requestAnimationFrame(draw);
-    }
-  }
-
-  canvas.addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
-  canvas.addEventListener('mouseleave', () => {
-    mouse.x = -9999;
-    mouse.y = -9999;
-  });
-  canvas.addEventListener('touchmove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    const t = e.touches[0];
-    mouse.x = t.clientX - rect.left;
-    mouse.y = t.clientY - rect.top;
-  }, {passive:true});
-
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
-  if(prefersReduced){
-    draw();
-  }
-})();
-</script>
-
-</body>
-</html>
+<section id="about">
+    <h2>About Me</h2>
+    <!-- Ensure the path in 'src' matches where you saved your image -->
+    <img src="c:\Users\Prajwol\website\photo\profile.jpeg.jpeg" alt="Portrait photo of Prajwol Maharjan" width="200" height="200">
+    <p>
+        Hello! I am a computing student with a strong interest in web development...
+    </p>
+</section>

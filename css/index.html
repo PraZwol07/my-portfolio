@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prajwol Maharjan | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanline" aria-hidden="true"></div>
+
+<header id="top">
+  <div class="titlebar">
+    <div class="container titlebar-inner">
+      <div class="dots" aria-hidden="true"><span class="d red"></span><span class="d yellow"></span><span class="d green"></span></div>
+      <img src="c:\Users\Prajwol\website\Portrait photo.jpeg.jpeg" alt="" class="brand-mark" aria-hidden="true">
+      <span class="path">prajwol@portfolio:~</span>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <div class="container tabs-inner">
+      <ul>
+        <li><a href="#about" class="tab-link" data-target="about"><span class="tab-idx">01</span>about</a></li>
+        <li><a href="#skills" class="tab-link" data-target="skills"><span class="tab-idx">02</span>skills</a></li>
+        <li><a href="#projects" class="tab-link" data-target="projects"><span class="tab-idx">03</span>projects</a></li>
+        <li><a href="#contact" class="tab-link" data-target="contact"><span class="tab-idx">04</span>contact</a></li>
+      </ul>
+      <form class="search-bar" role="search" id="searchForm">
+        <label for="siteSearch" class="sr-only">Filter projects</label>
+        <input type="text" id="siteSearch" placeholder="filter projects...">
+        <button type="submit" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="hero container">
+    <p class="eyebrow">$ whoami</p>
+    <h1>Prajwol Maharjan<span class="cursor" aria-hidden="true">_</span></h1>
+    <p class="hero-role">Computing student &mdash; aspiring full-stack &amp; cloud developer</p>
+    <p class="hero-desc">I build responsive interfaces and deploy them on scalable cloud infrastructure. Currently exploring AWS, Agile delivery, and modern front-end engineering.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View projects</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="about" class="reveal">
+    <div class="container about-grid">
+      <div class="avatar-frame" aria-hidden="false">
+        <div class="avatar-titlebar">
+          <span class="d red"></span><span class="d yellow"></span><span class="d green"></span>
+        </div>
+        <!--
+          Put your photo at:  website/images/portrait.jpg
+          (a relative path — NOT an absolute C:\Users\... path,
+          which only works on your own machine and breaks everywhere else)
+        -->
+        <img src="images/portrait.jpg" alt="Portrait of Prajwol Maharjan" class="avatar-img"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar-placeholder',textContent:'PM'}))">
+      </div>
+
+      <div class="about-content">
+        <p class="eyebrow">$ cat about.md</p>
+        <h2>About me</h2>
+        <p>I'm a Computing student with a specialised interest in cloud infrastructure and full-stack development. I bridge the gap between building high-quality, responsive interfaces and deploying them on scalable, secure environments.</p>
+        <p>My coursework has covered Agile and Scrum-managed project delivery, semantic and accessible HTML5, and cloud architecture on AWS &mdash; and I enjoy taking a project from a rough brief to a working, well-documented product.</p>
+        <ul class="stat-row">
+          <li><strong>2+</strong><span>Years studying computing</span></li>
+          <li><strong>AWS</strong><span>Cloud focus</span></li>
+          <li><strong>Agile</strong><span>Delivery approach</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="container">
+      <p class="eyebrow">$ skills --list</p>
+      <h2>Technical skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Cloud &amp; DevOps</h3>
+          <p>Cloud architecture, resource management, and scalable deployment on AWS.</p>
+          <div class="chip-row">
+            <span class="chip">AWS</span><span class="chip">EC2 / S3</span><span class="chip">CI/CD</span><span class="chip">Linux</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Web development</h3>
+          <p>Building responsive, accessible interfaces from semantic markup to interactive UI.</p>
+          <div class="chip-row">
+            <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">React</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Backend &amp; tools</h3>
+          <p>Server-side logic, version control, and everyday developer tooling.</p>
+          <div class="chip-row">
+            <span class="chip">Node.js</span><span class="chip">Git</span><span class="chip">REST APIs</span><span class="chip">SQL</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Delivery &amp; process</h3>
+          <p>Planning and running work the way real product teams do.</p>
+          <div class="chip-row">
+            <span class="chip">Scrum</span><span class="chip">Trello</span><span class="chip">Agile planning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="container">
+      <p class="eyebrow">ls ~/projects</p>
+      <h2>Projects</h2>
+
+      <div class="filter-row" id="filterRow">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="agile">Agile</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="cloud">Cloud</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <article class="project-card" data-tags="agile">
+          <div class="project-head">
+            <h3>Agile project planning</h3>
+            <span class="tag">Agile</span>
+          </div>
+          <p>Coursework applying Scrum methodology to a Library Management System, including product backlog, sprint boards, and a Trello-based dark-theme workflow.</p>
+          <div class="chip-row">
+            <span class="chip small">Scrum</span><span class="chip small">Trello</span><span class="chip small">Reporting</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="web">
+          <div class="project-head">
+            <h3>Semantic portfolio page</h3>
+            <span class="tag">Web</span>
+          </div>
+          <p>A structure-first HTML5 portfolio built to validate against W3C standards, focused on meaning-first markup before any visual styling.</p>
+          <div class="chip-row">
+            <span class="chip small">HTML5</span><span class="chip small">Accessibility</span><span class="chip small">Semantics</span>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="web cloud">
+          <div class="project-head">
+            <h3>This portfolio site</h3>
+            <span class="tag">Web / Cloud</span>
+          </div>
+          <p>A from-scratch personal site with custom HTML, CSS, and JavaScript &mdash; built to be deployed via GitHub Pages.</p>
+          <div class="chip-row">
+            <span class="chip small">HTML5</span><span class="chip small">CSS3</span><span class="chip small">JavaScript</span>
+          </div>
+        </article>
+      </div>
+      <p class="empty-state" id="emptyState" hidden>No projects match that filter.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow">$ contact --new</p>
+        <h2>Get in touch</h2>
+        <p class="contact-intro">Have a project, an internship opportunity, or just want to talk cloud architecture? Send a message.</p>
+
+        <ul class="social-list">
+          <li><a href="https://github.com/" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.81 1.18 1.83 1.18 3.09 0 4.42-2.7 5.4-5.26 5.68.42.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"></path></svg></span>
+            <span>GitHub</span>
+          </a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0z"></path></svg></span>
+            <span>LinkedIn</span>
+          </a></li>
+          <li><a href="mailto:prajwol@example.com">
+            <span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg></span>
+            <span>Email</span>
+          </a></li>
+          <li><a href="https://wa.me/" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"></path><path d="M12 2a10 10 0 0 0-8.5 15.24L2 22l4.9-1.46A10 10 0 1 0 12 2z"></path></svg></span>
+            <span>WhatsApp</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about the project or opportunity..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p><span class="ping" aria-hidden="true"></span>© 2026 Prajwol Maharjan. All rights reserved.</p>
+    <a href="#top" class="back-top">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
